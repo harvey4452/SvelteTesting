@@ -8,7 +8,7 @@ Before running project:
 
 To run project:
 
-1: Run Sql script in my sql workbench (make sure it's on world connection with the username and password inputted).
+1: Run Sql script in my sql workbench (make sure it's on world connection with the username: root and password: L3tM31n).
 2: run the C# project, leave the browser tab open and keep the project running.
 3: open the svelte project file in visual studio code.
 4: open a terminal in visual studio code and run the command 'npm install' and wait for the installation to finish.
