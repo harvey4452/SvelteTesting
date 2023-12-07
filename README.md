@@ -13,5 +13,6 @@ To run project:
 3: open the svelte project file in visual studio code.
 4: open a terminal in visual studio code and run the command 'npm install' and wait for the installation to finish.
 5: open a terminal in visual studio code and run the command 'npm run dev' and the website URL should pop up in the terminal (should be localhost 8080).
-6: put in any credentials and it should return false unless the email: newEmail@hull.ac.uk and the password: password1 are put in, where it will return true instead.
+
+From here you can use any of the websites implemented functionality!
 

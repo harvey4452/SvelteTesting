@@ -51,12 +51,22 @@
             <AdminHomepage/>
         {/if}
 	{:else}
-        {#if displayErrorMessage == 'true'}
-            <p class="ErrorMessage">Incorrect email or password!</p>
-        {/if}
-		<input bind:value={email} placeholder="enter your email" />
-	    <input bind:value={password} placeholder="enter your password" />
-        <button on:click={VerifyCredentials}>Login</button>
+		<div class="loginContainer">
+			<div class="row">
+				<div class="col align-self-center">
+					<input class="inputBox" bind:value={email} placeholder="Email" />
+				</div>
+				<div class="col align-self-center">
+	    			<input class="inputBox" bind:value={password} placeholder="Password" />
+				</div>
+				{#if displayErrorMessage == 'true'}
+            		<p class="ErrorMessage">Incorrect email or password!</p>
+        		{/if}
+				<div class="col align-self-right">
+        			<button class="buttonStyle" on:click={VerifyCredentials}>Login</button>
+				</div>
+			</div>
+		</div>
 	{/if}
 </div>
 
@@ -64,5 +74,22 @@
 	.ErrorMessage{
         color:red;
     }
+	.loginContainer{
+		text-align: center;
+	}
+	.inputBox{
+		width: 35em;
+		height: 3em;
+		border-radius: 0.5em;
+	}
+	.buttonStyle{
+		border-radius: 0.5em;
+		background-color: #ADD8E6;
+		color:white;
+		font-size:1.5em;
+		font-weight:600;
+		height: 2.25em;
+		width: 4.5em;
+	}
 </style>
 
