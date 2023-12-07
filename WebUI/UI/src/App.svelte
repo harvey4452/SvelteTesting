@@ -9,7 +9,6 @@
 
 	function GetIsValid(){
 		let newUrl = API_URL+"api/GymApp/GetCredentials?pEmail="+email+"&pPassword="+password;
-		alert(newUrl);
 		fetch(newUrl)
 		.then((response)=>response.json())
 		.then((data)=>{
