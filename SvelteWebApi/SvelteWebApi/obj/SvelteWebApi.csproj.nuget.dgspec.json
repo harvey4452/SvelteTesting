@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj": {}
+    "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj": {
+    "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
         "projectName": "SvelteWebApi",
-        "projectPath": "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
+        "projectPath": "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
         "packagesPath": "C:\\Users\\plebs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\obj\\",
+        "outputPath": "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\plebs\\AppData\\Roaming\\NuGet\\NuGet.Config",

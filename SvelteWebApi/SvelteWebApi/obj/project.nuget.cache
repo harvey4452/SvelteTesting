@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OSIFtBv+xse8zJWsSlUZ5tVxJOnthll/ntAgtQqzX6TDqNTediVZOg9q+clwama8Vz/ZoXLMHpHAzbOnpQCdSA==",
+  "dgSpecHash": "SypVYGx+ivH4jgkRO+whxruAwx5cQyJv+FTABzyQvRfA+sKHZBrZxtiSQZ/ZjBpLLXodPFZy4KlE513CIyn6Ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\plebs\\source\\repos\\WebApi\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
+  "projectFilePath": "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\plebs\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\plebs\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

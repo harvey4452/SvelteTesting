@@ -46,5 +46,30 @@ namespace WebApi.Controllers
             }
             return new JsonResult(isValid);
         }
+
+        [HttpGet]
+        [Route("GetAccessLevel")]
+
+        public JsonResult GetAccessLevel(string pEmail)
+        {
+            string accessLevel = "";
+            string query = $"SELECT AccessLevel FROM users WHERE Email = '{pEmail}'";
+            string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
+            MySqlDataReader reader;
+
+            using (MySqlConnection connection = new MySqlConnection(SqlDataSource))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    reader = command.ExecuteReader();
+                    reader.Read();
+                    accessLevel = reader[0].ToString();
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+            return new JsonResult(accessLevel);
+        }
     }
 }
