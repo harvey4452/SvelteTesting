@@ -25,10 +25,12 @@ CREATE TABLE IF NOT EXISTS `Users`.`users` (
   `UserPassword` TEXT DEFAULT NULL,
   `Forename` TEXT DEFAULT NULL,
   `Surname` TEXT DEFAULT NULL,
+  `AccessLevel` TEXT DEFAULT NULL,
   PRIMARY KEY (`Email`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
 
-INSERT INTO users (Email, UserPassword, Forename, Surname) values ('newEmail@hull.ac.uk', 'password1','harvey','emmerson');
+INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) values ('Customer@hull.ac.uk', 'password1','Harvey','Emmerson', 'Customer');
+INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) values ('Admin@hull.ac.uk', 'password1','Admin','Test', 'Admin');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
