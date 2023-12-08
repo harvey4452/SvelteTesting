@@ -75,10 +75,10 @@ namespace WebApi.Controllers
         [HttpPost]
         [Route("CreateAccount")]
 
-        public JsonResult CreateAccount([FromForm]string pEmail, [FromForm] string pPassword, [FromForm] string pFirstName, [FromForm] string pLastName, [FromForm] string pAccessLevel)
+        public JsonResult CreateAccount(string pEmail, string pPassword, string pFirstName, string pLastName, string pAccessLevel)
         {
             string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
-            string query = $"SELECT * FROM users WHERE Email = '{pEmail}'";
+            string query = $"SELECT COUNT(Email) FROM users WHERE Email = '{pEmail}'";
             MySqlCommand command;
 
             using (MySqlConnection connection = new MySqlConnection(SqlDataSource))
@@ -86,7 +86,8 @@ namespace WebApi.Controllers
                 connection.Open();
                 command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                reader.Read();
+                if (reader[0].ToString() != "0")
                 {
                     //there's already an account
                     reader.Close();

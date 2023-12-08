@@ -10,7 +10,6 @@
 		fetch(newUrl)
 		.then((response)=>response.json())
 		.then((data)=>{
-			alert(data);
 			isValid=data;
 		});
 	}
