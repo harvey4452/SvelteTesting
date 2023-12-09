@@ -127,3 +127,6 @@ C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\obj\Debug\ne
 C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\obj\Debug\net6.0\SvelteWebApi.pdb
 C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\obj\Debug\net6.0\SvelteWebApi.genruntimeconfig.cache
 C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\obj\Debug\net6.0\ref\SvelteWebApi.dll
+C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\bin\Debug\net6.0\Isopoh.Cryptography.Argon2.dll
+C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\bin\Debug\net6.0\Isopoh.Cryptography.Blake2b.dll
+C:\Users\plebs\source\repos\SvelteTesting\SvelteWebApi\SvelteWebApi\bin\Debug\net6.0\Isopoh.Cryptography.SecureArray.dll

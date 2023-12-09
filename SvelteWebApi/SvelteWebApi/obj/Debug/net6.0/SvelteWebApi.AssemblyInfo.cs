@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SvelteWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80f7813af0e07a8fcdb0c910a05dfd4259e59749")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4f66b9870025d739c7b3e03fd9fe5a14ad5c0f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SvelteWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SvelteWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -29,9 +29,6 @@ CREATE TABLE IF NOT EXISTS `Users`.`users` (
   PRIMARY KEY (`Email`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
 
-INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) values ('Customer@hull.ac.uk', 'password1','Harvey','Emmerson', 'Customer');
-INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) values ('Admin@hull.ac.uk', 'password1','Admin','Test', 'Admin');
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

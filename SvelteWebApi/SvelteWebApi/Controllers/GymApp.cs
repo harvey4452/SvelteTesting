@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-
+using Isopoh.Cryptography.Argon2;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApi.Controllers
 {
@@ -22,7 +23,7 @@ namespace WebApi.Controllers
         public JsonResult GetCredentials(string pEmail, string pPassword)
         {
             string isValid = "";
-            string query = $"SELECT Email,UserPassword FROM users WHERE Email = '{pEmail}' AND UserPassword = '{pPassword}'";
+            string query = $"SELECT Email,UserPassword FROM users WHERE Email = '{pEmail}'";
             string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
             MySqlDataReader reader;
 
@@ -34,7 +35,15 @@ namespace WebApi.Controllers
                     reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        isValid = "true";
+                        string hashedPassword = reader[1].ToString();
+                        if (Argon2.Verify(hashedPassword, pPassword))
+                        {
+                            isValid = "true";
+                        }
+                        else
+                        {
+                            isValid = "false";
+                        }
                     }
                     else
                     {
@@ -96,8 +105,11 @@ namespace WebApi.Controllers
                 }
                 else
                 {
+                    //hash password
+                    string passwordHash = Argon2.Hash(pPassword);
+
                     reader.Close();
-                    query = $"INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) VALUES ('{pEmail}','{pPassword}','{pFirstName}','{pLastName}','{pAccessLevel}')";
+                    query = $"INSERT INTO users (Email, UserPassword, Forename, Surname, AccessLevel) VALUES ('{pEmail}','{passwordHash}','{pFirstName}','{pLastName}','{pAccessLevel}')";
                     command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
                     connection.Close();

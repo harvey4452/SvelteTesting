@@ -1,5 +1,5 @@
 # SvelteTesting
-A basic project including a svelte frontend project and a C# backend using net core web Api. Connects locally to a local MySql database
+A basic project including a svelte frontend project and a C# backend using net core web Api. Connects locally to a local MySql database.
 
 Before running project:
 1: make sure you have visual studio code installed.
@@ -15,4 +15,10 @@ To run project:
 5: open a terminal in visual studio code and run the command 'npm run dev' and the website URL should pop up in the terminal (should be localhost 8080).
 
 From here you can use any of the websites implemented functionality!
+
+Current features:
+
+-working login page that leads to 2 different homepages based on whether an account is a customers or an admins.
+-password hashing using Argon2 implemented into account creation and identity verification.
+
 

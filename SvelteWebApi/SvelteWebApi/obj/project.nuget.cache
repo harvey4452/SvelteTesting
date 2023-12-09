@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "SypVYGx+ivH4jgkRO+whxruAwx5cQyJv+FTABzyQvRfA+sKHZBrZxtiSQZ/ZjBpLLXodPFZy4KlE513CIyn6Ew==",
+  "dgSpecHash": "AG2ZBJAHPf4v0iQTxojm+pXn3EhPIx7ius52aSw46flTUo+rRQjcLBwunOldexaNfNngClRrEcXDtzwq7U3s/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\plebs\\source\\repos\\SvelteTesting\\SvelteWebApi\\SvelteWebApi\\SvelteWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\plebs\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\plebs\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
+    "C:\\Users\\plebs\\.nuget\\packages\\isopoh.cryptography.argon2\\2.0.0\\isopoh.cryptography.argon2.2.0.0.nupkg.sha512",
+    "C:\\Users\\plebs\\.nuget\\packages\\isopoh.cryptography.blake2b\\2.0.0\\isopoh.cryptography.blake2b.2.0.0.nupkg.sha512",
+    "C:\\Users\\plebs\\.nuget\\packages\\isopoh.cryptography.securearray\\2.0.0\\isopoh.cryptography.securearray.2.0.0.nupkg.sha512",
     "C:\\Users\\plebs\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "C:\\Users\\plebs\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
     "C:\\Users\\plebs\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",
