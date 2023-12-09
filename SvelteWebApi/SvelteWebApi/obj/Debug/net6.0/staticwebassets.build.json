@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "2u1+CGSaaW6Uxw0nBh3Nf+FzTrd3hpAafU0NXFz5Oa0=",
+  "Source": "SvelteWebApi",
+  "BasePath": "_content/SvelteWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
