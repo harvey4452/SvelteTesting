@@ -46,7 +46,7 @@
 <div>
     {#if loggedIn == 'true'}
 		{#if isCustomer == 'true'}
-            <CustomerHomepage/>
+            <CustomerHomepage CustomerEmail={email}/>
         {:else if isAdmin == 'true'}
             <AdminHomepage/>
         {/if}

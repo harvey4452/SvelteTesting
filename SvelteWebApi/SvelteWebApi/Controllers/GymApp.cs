@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using Isopoh.Cryptography.Argon2;
 using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Ocsp;
+using Microsoft.VisualBasic;
 
 namespace WebApi.Controllers
 {
@@ -149,6 +152,99 @@ namespace WebApi.Controllers
                     connection.Close();
                     return new JsonResult("No account with that email exists!");
                 }
+            }
+        }
+
+
+        [HttpPost]
+        [Route("AddReps")]
+
+        public JsonResult AddReps(string pEmail, string pExercise, string pReps)
+        {
+            string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
+            string query = $"SELECT * FROM exerciseStats WHERE Email = '{pEmail}' AND ExerciseName = '{pExercise}'";
+            MySqlCommand command;
+
+            using (MySqlConnection connection = new MySqlConnection(SqlDataSource))
+            {
+                connection.Open();
+                command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read()) //The user has done the exercise before, need to append to existing reps.
+                {
+                    int newReps = int.Parse(reader[3].ToString()) + int.Parse(pReps);
+
+                    query = $"ALTER TABLE exerciseStats DROP CONSTRAINT `EmailKey`;\r\n" +
+                    $"ALTER TABLE exerciseStats DROP CONSTRAINT `ExerciseKey`;\r\n" +
+                    $"UPDATE exerciseStats SET Reps = '{newReps.ToString()}' WHERE ID = '{reader[0].ToString()}';\r\n" +
+                    $"ALTER TABLE exerciseStats ADD CONSTRAINT `EmailKey` FOREIGN KEY (`Email`) REFERENCES `users` (`Email`) ON DELETE CASCADE;\r\n" +
+                    $"ALTER TABLE exerciseStats ADD CONSTRAINT `ExerciseKey` FOREIGN KEY (`ExerciseName`) REFERENCES `exercises` (`Name`) ON DELETE CASCADE;";
+                    reader.Close();
+                }
+                else
+                {
+                    reader.Close();
+                    query = $"INSERT INTO exerciseStats (Email, ExerciseName, Reps) VALUES ('{pEmail}','{pExercise}', '{pReps}')";
+                }
+                command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return new JsonResult("Reps added successfully");
+            }
+        }
+
+        [HttpGet]
+        [Route("GetReps")]
+        public JsonResult GetReps(string pEmail)
+        {
+            string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
+            string query = $"SELECT Reps FROM exerciseStats WHERE Email = '{pEmail}'";
+            MySqlCommand command;
+
+            using (MySqlConnection connection = new MySqlConnection(SqlDataSource))
+            {
+                connection.Open();
+                command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<int> reps = new List<int>();
+
+                while (reader.Read())
+                {
+                    reps.Add(int.Parse(reader[0].ToString()));
+                }
+
+                reader.Close();
+                connection.Close();
+                var json = JsonConvert.SerializeObject(reps);
+                return new JsonResult(json);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetExerciseNames")]
+        public JsonResult GetExerciseNames(string pEmail)
+        {
+            string SqlDataSource = _configuration.GetConnectionString("GymAppDBcon");
+            string query = $"SELECT ExerciseName FROM exerciseStats WHERE Email = '{pEmail}'";
+            MySqlCommand command;
+
+            using (MySqlConnection connection = new MySqlConnection(SqlDataSource))
+            {
+                connection.Open();
+                command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<string> names = new List<string>();
+
+                while (reader.Read())
+                {
+                    names.Add(reader[0].ToString());
+                }
+
+                reader.Close();
+                connection.Close();
+                var json = JsonConvert.SerializeObject(names);
+                return new JsonResult(json);
             }
         }
     }
