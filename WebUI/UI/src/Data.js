@@ -22,19 +22,3 @@ export const data = {
       },
     ],
   };
-
-  function GetReps(){
-    let newUrl = API_URL+"api/GymApp/GetReps?pEmail="+DeleteEmail;
-    fetch(newUrl,{method:"DELETE"})
-    .then((response)=>response.json())
-    .then((data)=>{
-      if (data == "Account deleted!")
-      {
-        displayDeleteMessage = 'success';
-      }
-      else if(data == "No account with that email exists!")
-      {
-        displayDeleteMessage = 'error';
-      }
-    });
-  }

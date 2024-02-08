@@ -12,8 +12,20 @@
     let API_URL = "http://localhost:5035/";
 
     function CreateAccount(){
-        let newUrl = API_URL+"api/GymApp/CreateAccount?pEmail="+Email+"&pPassword="+Password+"&pFirstName="+Fname+"&pLastName="+Lname+"&pAccessLevel="+AccessLevel;
-        fetch(newUrl,{method:"POST"})
+        let newUrl = API_URL+"api/GymApp/CreateAccount";
+        const accountDetails = new FormData();
+        accountDetails.append("Email", Email);
+        accountDetails.append("Password", Password);
+        accountDetails.append("FirstName", Fname);
+        accountDetails.append("LastName", Lname);
+        accountDetails.append("AccessLevel", AccessLevel);
+
+        fetch(
+        newUrl,
+        {
+            method:"POST", 
+            body: accountDetails
+        })
 		.then((response)=>response.json())
 		.then((data)=>{
 			if (data == "Account created!"){
@@ -26,8 +38,15 @@
     }
 
     function DeleteAccount(){
-        let newUrl = API_URL+"api/GymApp/DeleteAccount?pEmail="+DeleteEmail;
-        fetch(newUrl,{method:"DELETE"})
+        let newUrl = API_URL+"api/GymApp/DeleteAccount";
+        const accountToDelete = new FormData();
+        accountToDelete.append("Email",DeleteEmail);
+        fetch(
+        newUrl,
+        {
+            method:"DELETE",
+            body: accountToDelete
+        })
 		.then((response)=>response.json())
 		.then((data)=>{
 			if (data == "Account deleted!"){
@@ -38,6 +57,7 @@
             }
 		});
     }
+
 
 </script>
 

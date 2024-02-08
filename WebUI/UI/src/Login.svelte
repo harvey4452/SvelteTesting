@@ -14,8 +14,16 @@
 	let isAdmin = 'false';
 
 	function VerifyCredentials(){
-		let newUrl = API_URL+"api/GymApp/GetCredentials?pEmail="+email+"&pPassword="+password;
-		fetch(newUrl)
+		let newUrl = API_URL+"api/GymApp/GetCredentials";
+		const credentials = new FormData();
+		credentials.append("Email",email);
+		credentials.append("Password",password);
+		fetch(
+		newUrl,
+		{
+			method:"POST",
+			body: credentials
+		})
 		.then((response)=>response.json())
 		.then((data)=>{
 			if (data == "true"){
@@ -28,8 +36,15 @@
 		});
 	}
 	function GetAccessLevel(){
-		let newUrl = API_URL+"api/GymApp/GetAccessLevel?pEmail="+email;
-		fetch(newUrl)
+		let newUrl = API_URL+"api/GymApp/GetAccessLevel";
+		const emailBody = new FormData();
+		emailBody.append("Email", email);
+		fetch(
+		newUrl,
+		{
+			method:"POST",
+			body: emailBody
+		})
 		.then((response)=>response.json())
 		.then((data)=>{
 			if (data == "Customer"){

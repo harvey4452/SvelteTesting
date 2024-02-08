@@ -50,8 +50,16 @@
 
     function GetReps()
     {
-        let newUrl = API_URL+"api/GymApp/GetReps?pEmail="+CustomerEmail;
-        fetch(newUrl)
+        let newUrl = API_URL+"api/GymApp/GetReps";
+        const emailBody = new FormData();
+        emailBody.append("Email",CustomerEmail);
+
+        fetch(
+        newUrl,
+        {
+            method:"POST",
+            body: emailBody
+        })
         .then((response)=>response.json())
         .then((data)=>{
             const reps = JSON.parse(data);
@@ -61,8 +69,15 @@
     }
     function GetExercises()
     {
-        let newUrl = API_URL+"api/GymApp/GetExerciseNames?pEmail="+CustomerEmail;
-        fetch(newUrl)
+        let newUrl = API_URL+"api/GymApp/GetExerciseNames";
+        const emailBody = new FormData();
+        emailBody.append("Email",CustomerEmail);
+        fetch(
+        newUrl,
+        {
+            method:"POST",
+            body: emailBody
+        })
         .then((response)=>response.json())
         .then((data)=>{
             const exercises = JSON.parse(data);
@@ -73,8 +88,17 @@
 
     function IncrementRep()
     {
-        let newUrl = API_URL+"api/GymApp/AddReps?pEmail="+CustomerEmail+"&pExercise="+selectedExercise.text+"&pReps=1";
-        fetch(newUrl,{method:"POST"})
+        let newUrl = API_URL+"api/GymApp/AddReps";
+        const repData = new FormData();
+        repData.append("Email",CustomerEmail);
+        repData.append("Exercise",selectedExercise.text);
+        repData.append("Reps","1");
+        fetch(
+        newUrl,
+        {
+            method:"POST",
+            body: repData
+        })
 		.then((response)=>response.json())
 		.then((data)=>{
             GetReps();
